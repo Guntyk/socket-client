@@ -17,6 +17,7 @@ export default function Chat() {
     const searchParams = Object.fromEntries(new URLSearchParams(search));
     setParams(searchParams);
     socket.emit('join', searchParams);
+    // eslint-disable-next-line
   }, [search]);
 
   useEffect(() => {
@@ -27,6 +28,7 @@ export default function Chat() {
     socket.on('roomUsersAction', ({ data: { users } }) => {
       setUsers(users.length);
     });
+    // eslint-disable-next-line
   }, []);
 
   function leftRoom() {
