@@ -1,5 +1,6 @@
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
+import './Main.css';
 
 export default function Main() {
   const [values, setValues] = useState({ username: '', room: '' });
@@ -22,16 +23,14 @@ export default function Main() {
 
   return (
     <div className='wrapper'>
-      <h1>Join</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input type='text' name='username' value={values?.username} placeholder='Username' onChange={handleChange} autoComplete='off' />
-        </div>
-        <div>
-          <input type='text' name='room' value={values?.room} placeholder='Room' onChange={handleChange} autoComplete='off' />
-        </div>
+      <form className='sign-in-form' onSubmit={handleSubmit}>
+        <h1 className='title'>Join</h1>
+        <input type='text' name='username' value={values?.username} placeholder='Username' onChange={handleChange} autoComplete='off' />
+        <input type='text' name='room' value={values?.room} placeholder='Room' onChange={handleChange} autoComplete='off' />
         {error && <div className='error'>Fill in all field</div>}
-        <button type='submit'>Sign In</button>
+        <button className='btn' type='submit'>
+          Sign In
+        </button>
       </form>
     </div>
   );
