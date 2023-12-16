@@ -6,7 +6,7 @@ import './Chat.css';
 
 export default function Chat() {
   const [message, setMessage] = useState('');
-  const socket = io.connect('http://localhost:5000');
+  const socket = io.connect('https://online-chat-wrhs.onrender.com');
   const [messages, setMessages] = useState([]);
   const [params, setParams] = useState(null);
   const [users, setUsers] = useState(0);
