@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-import { getRandomArrayElement } from 'helpers/getRandomArrayElement';
-import { avatarColors } from 'constants/avatarColors';
 import './Members.css';
 
 export default function Members({ members }) {

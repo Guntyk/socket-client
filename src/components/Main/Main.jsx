@@ -41,6 +41,7 @@ export default function Main() {
 
   useEffect(() => {
     socket.emit('updateUserStatus', { user });
+    // eslint-disable-next-line
   }, [user]);
 
   useEffect(() => {

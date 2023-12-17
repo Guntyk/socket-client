@@ -4,7 +4,6 @@ import './Auth.css';
 
 export default function Auth() {
   const [values, setValues] = useState({ username: '', room: 'One' });
-  const [error, setError] = useState(false);
   const { push } = useHistory();
 
   function handleChange({ target: { value, name } }) {
