@@ -14,16 +14,17 @@ export default function Members({ members }) {
     document.body.style.cursor = 'ew-resize';
   };
 
+  // eslint-disable-next-line
   const handleMouseMove = (e) => {
     const finalWidth = window.innerWidth - e.clientX;
     const finalWidthRem = finalWidth / remInPixels;
 
-    // Constraining the width between MIN_WIDTH_REM and MAX_WIDTH_REM
     if (finalWidthRem >= MIN_WIDTH_REM && finalWidthRem <= MAX_WIDTH_REM) {
       setMembersListWidth(finalWidth);
     }
   };
 
+  // eslint-disable-next-line 
   const handleMouseUp = () => {
     setIsMouseDown(false);
     document.body.style.cursor = 'default';
