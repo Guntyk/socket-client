@@ -1,3 +1,5 @@
+import './Messages.css';
+
 export default function Message({ messages, username }) {
   return (
     <>

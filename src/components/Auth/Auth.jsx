@@ -1,8 +1,8 @@
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
-import './Main.css';
+import './Auth.css';
 
-export default function Main() {
+export default function Auth() {
   const [values, setValues] = useState({ username: '', room: '' });
   const [error, setError] = useState(false);
   const { push } = useHistory();

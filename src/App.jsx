@@ -1,16 +1,16 @@
 import { Switch, Route } from 'react-router-dom';
-import Chat from 'components/Chat/Chat';
-import Main from 'components/Main';
+import Auth from 'components/Auth/Auth';
+import Main from 'components/Main/Main';
 
 export default function App() {
   return (
     <div className='container'>
       <Switch>
         <Route exact path='/'>
-          <Main />
+          <Auth />
         </Route>
         <Route exact path='/chat'>
-          <Chat />
+          <Main />
         </Route>
       </Switch>
     </div>
