@@ -8,7 +8,7 @@ import { avatarColors } from 'constants/avatarColors';
 import './Main.css';
 
 export default function Main() {
-  const socket = io.connect('http://localhost:5000/socket.io/');
+  const socket = io.connect('http://62.80.165.251');
   const [messages, setMessages] = useState([]);
   const [params, setParams] = useState(null);
   const [users, setUsers] = useState([]);
