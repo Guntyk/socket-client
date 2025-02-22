@@ -8,8 +8,7 @@ import { avatarColors } from 'constants/avatarColors';
 import './Main.css';
 
 export default function Main() {
-  const socket = io.connect('https://online-chat-wrhs.onrender.com');
-  // const socket = io.connect('http://localhost:5000');
+  const socket = io.connect('http://localhost:5000');
   const [messages, setMessages] = useState([]);
   const [params, setParams] = useState(null);
   const [users, setUsers] = useState([]);
