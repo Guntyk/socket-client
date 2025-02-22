@@ -44,9 +44,9 @@ export default function Members({ members }) {
 
   return (
     <section className='info-section'>
-      <span className='members-count'>{members.length > 1 ? `${members.length} members` : '1 member'}</span>
+      <span className='members-count'>{members?.length > 1 ? `${members?.length} members` : '1 member'}</span>
       <ul className='members-list' style={{ minWidth: `${membersListWidth}px` }}>
-        {members.length > 0 &&
+        {members?.length > 0 &&
           members.map((u, i) => (
             <li className='member' key={i}>
               <div className='avatar' style={{ background: u.avatarColor }}>
