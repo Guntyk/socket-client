@@ -55,9 +55,13 @@ export default function Main() {
     });
   }, []);
 
+  useEffect(() => {
+    console.log(users)
+  }, [users])
+
   return (
     <div className='main'>
-      <Chat socket={socket} messages={messages} params={params} membersCount={users.length} push={push} />
+      <Chat socket={socket} messages={messages} params={params} membersCount={users?.length} push={push} />
       <Members members={users} />
     </div>
   );

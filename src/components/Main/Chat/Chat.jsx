@@ -35,7 +35,7 @@ export default function Chat({ socket, messages, params, push }) {
       </div>
       <form className='input-message' onSubmit={handleSubmit}>
         <input type='text' name='message' value={message} placeholder='Message...' onChange={handleChange} autoComplete='off' />
-        <button className='send-btn' type='submit' disabled={message.length === 0}>
+        <button className='send-btn' type='submit' disabled={message?.length === 0}>
           Send
         </button>
       </form>
