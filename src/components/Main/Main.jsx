@@ -8,7 +8,7 @@ import { avatarColors } from 'constants/avatarColors';
 import './Main.css';
 
 export default function Main() {
-  const socket = io.connect('http://localhost:5000');
+  const socket = io.connect('http://localhost:5000/socket.io/');
   const [messages, setMessages] = useState([]);
   const [params, setParams] = useState(null);
   const [users, setUsers] = useState([]);
@@ -35,12 +35,10 @@ export default function Main() {
     setParams(searchParams);
     setUser(user);
     socket.emit('join', user);
-    // eslint-disable-next-line
   }, [search]);
 
   useEffect(() => {
     socket.emit('updateUserStatus', { user });
-    // eslint-disable-next-line
   }, [user]);
 
   useEffect(() => {
@@ -55,7 +53,6 @@ export default function Main() {
     socket.on('messageHistory', (messageHistory) => {
       setMessages(messageHistory);
     });
-    // eslint-disable-next-line
   }, []);
 
   return (
