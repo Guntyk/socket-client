@@ -1,9 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Messages from 'components/Main/Chat/Messages/Messages';
 import './Chat.css';
 
 export default function Chat({ socket, messages, params, push }) {
   const [message, setMessage] = useState('');
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   function leftRoom() {
     socket.emit('leftRoom', { params });
@@ -32,9 +41,17 @@ export default function Chat({ socket, messages, params, push }) {
       </div>
       <div className='chat'>
         <Messages messages={messages} username={params?.name} />
+        <div ref={messagesEndRef} />
       </div>
       <form className='input-message' onSubmit={handleSubmit}>
-        <input type='text' name='message' value={message} placeholder='Message...' onChange={handleChange} autoComplete='off' />
+        <input
+          type='text'
+          name='message'
+          value={message}
+          placeholder='Message...'
+          onChange={handleChange}
+          autoComplete='off'
+        />
         <button className='send-btn' type='submit' disabled={message?.length === 0}>
           Send
         </button>
