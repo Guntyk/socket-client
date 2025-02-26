@@ -5,7 +5,7 @@ import { getRandomArrayElement } from 'helpers/getRandomArrayElement';
 import Members from 'components/Main/Members/Members';
 import Chat from 'components/Main/Chat/Chat';
 import { avatarColors } from 'constants/avatarColors';
-import './Main.css';
+import styles from './Main.scss';
 
 export default function Main() {
   const socket = io.connect('http://62.80.165.251');
@@ -56,11 +56,11 @@ export default function Main() {
   }, []);
 
   useEffect(() => {
-    console.log(users)
-  }, [users])
+    console.log(users);
+  }, [users]);
 
   return (
-    <div className='main'>
+    <div className={styles.main}>
       <Chat socket={socket} messages={messages} params={params} membersCount={users?.length} push={push} />
       <Members members={users} />
     </div>

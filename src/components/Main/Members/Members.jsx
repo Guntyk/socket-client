@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import './Members.css';
+import cn from 'classnames';
+import styles from './Members.scss';
 
 export default function Members({ members }) {
   const [membersListWidth, setMembersListWidth] = useState(250);
@@ -14,7 +15,6 @@ export default function Members({ members }) {
     document.body.style.cursor = 'ew-resize';
   };
 
-  // eslint-disable-next-line
   const handleMouseMove = (e) => {
     const finalWidth = window.innerWidth - e.clientX;
     const finalWidthRem = finalWidth / remInPixels;
@@ -24,7 +24,6 @@ export default function Members({ members }) {
     }
   };
 
-  // eslint-disable-next-line
   const handleMouseUp = () => {
     setIsMouseDown(false);
     document.body.style.cursor = 'default';
@@ -43,20 +42,20 @@ export default function Members({ members }) {
   }, [isMouseDown, handleMouseMove, handleMouseUp]);
 
   return (
-    <section className='info-section'>
-      <span className='members-count'>{members?.length > 1 ? `${members?.length} members` : '1 member'}</span>
-      <ul className='members-list' style={{ minWidth: `${membersListWidth}px` }}>
+    <section className={styles.infoSection}>
+      <span className={styles.membersCount}>{members?.length > 1 ? `${members?.length} members` : '1 member'}</span>
+      <ul className={styles.membersList} style={{ minWidth: `${membersListWidth}px` }}>
         {members?.length > 0 &&
           members.map((u, i) => (
-            <li className='member' key={i}>
-              <div className='avatar' style={{ background: u.avatarColor }}>
+            <li className={styles.member} key={i}>
+              <div className={styles.avatar} style={{ background: u.avatarColor }}>
                 {u.name.slice(0, 1)}
-                <div className={`online-status ${u.online ? 'online' : 'offline'}`} />
+                <div className={cn(styles.onlineStatus, { [styles.online]: u.online })} />
               </div>
               <span>{u.name}</span>
             </li>
           ))}{' '}
-        <div className='resizer' onMouseDown={handleMouseDown} />
+        <div className={styles.resizer} onMouseDown={handleMouseDown} />
       </ul>
     </section>
   );

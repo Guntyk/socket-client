@@ -1,6 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
-import './Auth.css';
+import cn from 'classnames';
+import styles from './Auth.scss';
 
 export default function Auth() {
   const [values, setValues] = useState({ username: '', room: 'One' });
@@ -16,14 +17,32 @@ export default function Auth() {
   }
 
   return (
-    <div className='wrapper'>
-      <form className='sign-in-form' onSubmit={handleSubmit}>
-        <h1 className='title'>Join</h1>
-        <div className='inputs-wrapper'>
-          <input type='text' name='username' value={values?.username} placeholder='Username' onChange={handleChange} autoComplete='off' />
-          <input type='text' name='room' value={values?.room} placeholder='Room' onChange={handleChange} autoComplete='off' />
+    <div className={styles.wrapper}>
+      <form className={styles.signInForm} onSubmit={handleSubmit}>
+        <h1 className={styles.title}>Join</h1>
+        <div className={styles.inputsWrapper}>
+          <input
+            type='text'
+            name='username'
+            value={values?.username}
+            placeholder='Username'
+            onChange={handleChange}
+            autoComplete='off'
+          />
+          <input
+            type='text'
+            name='room'
+            value={values?.room}
+            placeholder='Room'
+            onChange={handleChange}
+            autoComplete='off'
+          />
         </div>
-        <button className='btn sign-btn' type='submit' disabled={Object.values(values).some((value) => !value)}>
+        <button
+          className={cn(styles.btn, styles.signBtn)}
+          type='submit'
+          disabled={Object.values(values).some((value) => !value)}
+        >
           Sign In
         </button>
       </form>

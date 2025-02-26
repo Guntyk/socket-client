@@ -1,8 +1,8 @@
-.chat-page {
+.chatPage {
   width: 100%;
 }
 
-.chat-page .header {
+.chatPage .header {
   padding: 2rem;
   display: flex;
   justify-content: space-between;
@@ -12,17 +12,17 @@
   user-select: none;
 }
 
-.chat-name {
+.chatName {
   font-size: 3rem;
   font-weight: 500;
 }
 
-.left-chat-btn {
+.leftChatBtn {
   padding: 0.5rem 2rem;
   border-radius: 1rem;
   background: #ee2e2e;
 }
-.left-chat-btn:active {
+.leftChatBtn:active {
   background: #c72727;
 }
 
@@ -39,7 +39,7 @@
   display: none;
 }
 
-.input-message {
+.inputMessage {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -49,20 +49,20 @@
   user-select: none;
 }
 
-.input-message input {
+.inputMessage input {
   margin: 0;
   width: 100%;
   border: none;
 }
 
-.send-btn {
+.sendBtn {
   padding: 1rem 5rem;
 }
-.send-btn:hover {
+.sendBtn:hover {
   color: #252525;
   background: #fff;
 }
-.send-btn:disabled {
+.sendBtn:disabled {
   color: #363636;
   pointer-events: none;
 }

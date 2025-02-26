@@ -4,7 +4,7 @@
   height: 100vh;
 }
 
-.sign-in-form {
+.signInForm {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,23 +17,23 @@
   letter-spacing: 0.5rem;
 }
 
-.inputs-wrapper {
+.inputsWrapper {
   display: flex;
   border: 0.2rem solid #fff;
   border-radius: 1rem;
 }
 
-.sign-in-form input:last-child {
+.signInForm input:last-child {
   border-left: 0.2rem solid #fff;
 }
-.sign-in-form .btn {
+.signInForm .btn {
   padding: 1rem 0;
   width: 50%;
   background: #1930ff;
 }
-.sign-in-form .btn:disabled {
+.signInForm .btn:disabled {
   filter: grayscale(1);
 }
-.sign-in-form .btn:active {
+.signInForm .btn:active {
   background: #172be2;
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Messages from 'components/Main/Chat/Messages/Messages';
-import './Chat.css';
+import styles from './Chat.scss';
 
 export default function Chat({ socket, messages, params, push }) {
   const [message, setMessage] = useState('');
@@ -32,18 +32,18 @@ export default function Chat({ socket, messages, params, push }) {
   }
 
   return (
-    <div className='chat-page'>
-      <div className='header'>
-        <span className='chat-name'>{params?.room}</span>
-        <button className='left-chat-btn' onClick={leftRoom}>
+    <div className={styles.chatPage}>
+      <div className={styles.header}>
+        <span className={styles.chatName}>{params?.room}</span>
+        <button className={styles.leftChatBtn} onClick={leftRoom}>
           Leave the room
         </button>
       </div>
-      <div className='chat'>
+      <div className={styles.chat}>
         <Messages messages={messages} username={params?.name} />
         <div ref={messagesEndRef} />
       </div>
-      <form className='input-message' onSubmit={handleSubmit}>
+      <form className={styles.inputMessage} onSubmit={handleSubmit}>
         <input
           type='text'
           name='message'
@@ -52,7 +52,7 @@ export default function Chat({ socket, messages, params, push }) {
           onChange={handleChange}
           autoComplete='off'
         />
-        <button className='send-btn' type='submit' disabled={message?.length === 0}>
+        <button className={styles.sendBtn} type='submit' disabled={message?.length === 0}>
           Send
         </button>
       </form>
