@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import cn from 'classnames';
 import styles from './Members.scss';
 
-export default function Members({ members }) {
+export const Members = ({ members }) => {
   const [membersListWidth, setMembersListWidth] = useState(250);
   const [isMouseDown, setIsMouseDown] = useState(false);
 
@@ -59,4 +59,4 @@ export default function Members({ members }) {
       </ul>
     </section>
   );
-}
+};

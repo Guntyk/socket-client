@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
-import Messages from 'components/Main/Chat/Messages/Messages';
+import cn from 'classnames';
 import styles from './Chat.scss';
 
-export default function Chat({ socket, messages, params, push }) {
+export const Chat = ({ socket, messages, params, push }) => {
   const [message, setMessage] = useState('');
   const messagesEndRef = useRef(null);
 
@@ -40,7 +40,19 @@ export default function Chat({ socket, messages, params, push }) {
         </button>
       </div>
       <div className={styles.chat}>
-        <Messages messages={messages} username={params?.name} />
+        {messages.length > 0 &&
+          messages.map(({ user, message }, i) =>
+            params?.name.trim().toLowerCase() === user.name.trim().toLowerCase() ? (
+              <div className={cn(styles.message, styles.me)} key={i}>
+                <p>{message}</p>
+              </div>
+            ) : (
+              <div className={cn(styles.message, { [styles.notification]: user.name === 'Admin' })} key={i}>
+                {user.name !== 'Admin' && <span className={styles.author}>{user.name}</span>}
+                <p>{message}</p>
+              </div>
+            )
+          )}
         <div ref={messagesEndRef} />
       </div>
       <form className={styles.inputMessage} onSubmit={handleSubmit}>
@@ -58,4 +70,4 @@ export default function Chat({ socket, messages, params, push }) {
       </form>
     </div>
   );
-}
+};

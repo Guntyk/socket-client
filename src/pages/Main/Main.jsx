@@ -2,12 +2,12 @@ import { useLocation, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
 import { getRandomArrayElement } from 'helpers/getRandomArrayElement';
-import Members from 'components/Main/Members/Members';
-import Chat from 'components/Main/Chat/Chat';
 import { avatarColors } from 'constants/avatarColors';
+import { Members } from 'pages/Main/Members';
+import { Chat } from 'pages/Main/Chat';
 import styles from './Main.scss';
 
-export default function Main() {
+export const Main = () => {
   const socket = io.connect('http://62.80.165.251');
   const [messages, setMessages] = useState([]);
   const [params, setParams] = useState(null);
@@ -65,4 +65,4 @@ export default function Main() {
       <Members members={users} />
     </div>
   );
-}
+};

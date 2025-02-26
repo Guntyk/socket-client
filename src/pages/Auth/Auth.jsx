@@ -3,7 +3,7 @@ import { useState } from 'react';
 import cn from 'classnames';
 import styles from './Auth.scss';
 
-export default function Auth() {
+export const Auth = () => {
   const [values, setValues] = useState({ username: '', room: 'One' });
   const { push } = useHistory();
 
@@ -48,4 +48,4 @@ export default function Auth() {
       </form>
     </div>
   );
-}
+};
