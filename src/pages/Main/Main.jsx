@@ -8,7 +8,7 @@ import { Chat } from 'pages/Main/Chat';
 import styles from './Main.scss';
 
 export const Main = () => {
-  const socket = io.connect('http://62.80.165.251');
+  const socket = io.connect(process.env.REACT_APP_BASE_API_URL);
   const [messages, setMessages] = useState([]);
   const [params, setParams] = useState(null);
   const [users, setUsers] = useState([]);
